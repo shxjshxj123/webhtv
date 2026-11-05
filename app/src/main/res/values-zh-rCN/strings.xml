@@ -1,7 +1,7 @@
 <resources xmlns:xliff="http://schemas.android.com/apk/res-auto">
 
     <!-- App -->
-    <string name="app_name">默影视</string>
+    <string name="app_name">冉神影视</string>
    <string name="setting_app_branding">APP 图标</string>
     <string name="app_branding_icon_current">默认图标</string>
     <string name="app_branding_icon_history">原版图标</string>
@@ -911,17 +911,7 @@
     <string name="about_free_badge">完全免费</string>
     <string name="about_version">版本 %1$s · %2$s/%3$s</string>
     <string name="about_disclaimer">WebHomeTV 是基于开源生态二次开发的技术学习与研究项目，软件本体完全免费，不提供任何付费服务、影视内容、直播源、接口源、资源存储或内容分发能力。\n\n本软件仅供技术学习、研究和个人测试使用，请在下载、安装或试用后 24 小时内自行卸载。继续使用本软件所产生的一切行为及后果，由使用者自行承担。\n\n本软件不内置、不售卖、不传播任何影视资源，不对用户自行添加的接口、站源、插件、脚本、链接、网盘资源或第三方服务内容负责。使用者应遵守所在地法律法规，尊重版权方和内容提供方的合法权益，不得将本软件用于任何侵权、盗版、传播非法内容或其他违法违规用途。\n\n严禁任何个人或组织以本软件名义进行售卖、引流、收费维护、会员服务、广告变现、盒子预装、电视盒子捆绑销售或其他任何形式的获益行为。对于将本软件内置于电视盒子、机顶盒、付费套餐或商业服务中进行销售、推广的行为，项目方明确反对并予以谴责。\n\n如你不同意以上声明，请立即停止使用并卸载本软件。</string>
-    <string name="about_check_update">检查更新</string>
     <string name="about_acknowledge">我已知悉</string>
-    <string name="setting_github_proxy">GitHub 加速源</string>
-    <string name="setting_github_proxy_short">加速源</string>
-    <string name="setting_github_proxy_hint">输入加速源 URL</string>
-    <string name="setting_github_proxy_message">点选列表中的源作为当前加速源，可在下方添加自定义源。关闭加速后 GitHub Raw/Release 使用直连。</string>
-    <string name="setting_github_proxy_enabled">使用 GitHub 加速</string>
-    <string name="setting_github_proxy_add">添加</string>
-    <string name="setting_github_proxy_remove">移除</string>
-    <string name="setting_github_proxy_reset">重置默认</string>
-    <string name="setting_github_proxy_invalid">请输入有效的 http/https 地址</string>
 
     <!-- Backup & Restore -->
     <string name="restore_select">选择备份</string>
@@ -1456,59 +1446,7 @@
     <string name="error_empty">这里什麽都没有 👀</string>
 
     <!-- Update -->
-    <string name="update_version">发现新版本 <xliff:g name="name">%s</xliff:g></string>
-    <string name="update_title">版本更新</string>
-    <string name="update_hint">选择版本查看更新内容并安装。</string>
     <string name="update_check">正在检测更新…</string>
-    <string name="update_latest">已是最新版本</string>
-    <string name="update_failed">检测更新失败</string>
-    <string name="update_downloading">正在下载 %1$d%%</string>
-    <string name="update_downloading_unknown">正在下载…</string>
-    <string name="update_downloading_detail">正在下载 %1$d%% · %2$s/s · 已用 %3$s</string>
-    <string name="update_downloading_detail_remaining">正在下载 %1$d%% · %2$s/s · 剩余 %3$s · 已用 %4$s</string>
-    <string name="update_downloading_detail_unknown">正在下载 · %1$s/s · 已用 %2$s</string>
-    <string name="update_download_incomplete">更新包下载不完整，请重试。</string>
-    <string name="update_download_checksum">更新包校验失败，请重试。</string>
-    <string name="update_download_invalid">更新包无效，请重试。</string>
-    <string name="update_confirm">更新</string>
-    <string name="update_confirm_channel">更新%1$s</string>
-    <string name="update_cancel">取消更新</string>
-    <string name="update_canceled">更新已取消</string>
-    <string name="update_channel_stable">稳定版</string>
-    <string name="update_channel_beta">测试版</string>
-    <string name="update_channel_latest">当前通道已是最新版本。</string>
-    <string name="update_channel_unavailable">当前通道暂无可用更新清单。</string>
-    <string name="update_no_notes">暂无更新日志。</string>
-    <string name="update_status_available">可更新</string>
-    <string name="update_status_latest">已最新</string>
-    <string name="update_status_unavailable">暂无</string>
-    <string name="update_expand">展开</string>
-    <string name="update_collapse">收起</string>
-    <string name="update_backup_title">更新前备份</string>
-    <string name="update_backup_message">建议在更新前备份当前配置，以便更新后出现问题时可以恢复。是否先备份？</string>
-    <string name="update_backup_positive">备份并更新</string>
-    <string name="update_backup_negative">直接更新</string>
-    <string name="update_backup_running">正在备份…</string>
-    <string name="update_backup_done">备份完成，开始更新</string>
-    <string name="update_backup_failed">备份失败，仍将继续更新</string>
-    <string name="update_backup_permission_denied">未授予存储权限，无法备份，仍将继续更新</string>
-    <string name="update_settings">更新设置</string>
-    <string name="update_settings_title">更新设置</string>
-    <string name="update_settings_source">更新方式</string>
-    <string name="update_source_github">GitHub</string>
-    <string name="update_source_oci">OCI</string>
-    <string name="update_github_proxy">GitHub 代理</string>
-    <string name="update_github_proxy_value">GitHub 代理 · %1$s</string>
-    <string name="update_oci_mirror">OCI 镜像代理</string>
-    <string name="update_oci_mirror_value">OCI 镜像 · %1$s</string>
-    <string name="update_custom_url">自定义 HTTPS 地址</string>
-    <string name="update_proxy_mode_full">完整 URL 前缀</string>
-    <string name="update_proxy_mode_strip">移除 https://</string>
-    <string name="update_proxy_direct">直连</string>
-    <string name="update_proxy_custom">自定义</string>
-    <string name="update_proxy_invalid">请输入不含账号、密码和路径的有效 HTTPS 地址。</string>
-    <string name="update_settings_save">保存</string>
-    <string name="update_settings_saved">更新设置已保存</string>
     <string name="apk_push_url_busy">已有 APK 链接下载任务正在进行</string>
     <string name="apk_push_url_schedule_failed">无法启动 APK 链接下载</string>
     <string name="apk_push_url_downloading">已收到 APK 链接，正在本机下载…</string>
@@ -1522,8 +1460,6 @@
     <string name="apk_push_url_progress_detail">%1$s/s · 已用 %2$s</string>
     <string name="apk_push_url_cancel">取消下载</string>
     <string name="apk_push_url_canceled">已取消 APK 下载</string>
-    <string name="update_download_identity">更新包身份或签名与当前应用不匹配。</string>
-    <string name="update_download_source_unavailable">此版本没有可用的更新来源。</string>
 
     <!-- Crash -->
     <string name="crash_info">发生意外错误\n抱歉给您带来不便</string>

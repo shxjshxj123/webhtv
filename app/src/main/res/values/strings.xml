@@ -1,7 +1,7 @@
 <resources xmlns:xliff="http://schemas.android.com/apk/res-auto">
 
     <!-- App -->
-   <string name="app_name">默影视</string>
+   <string name="app_name">冉神影视</string>
    <string name="setting_app_branding">App icon</string>
     <string name="app_branding_icon_current">Default icon</string>
     <string name="app_branding_icon_history">Original icon</string>
@@ -914,17 +914,7 @@
     <string name="about_free_badge">Free</string>
     <string name="about_version">Version %1$s · %2$s/%3$s</string>
     <string name="about_disclaimer">WebHomeTV is a technical learning and research project based on open source ecosystems. The software itself is completely free and does not provide paid services, video content, live sources, API sources, resource storage, or content distribution.\n\nThis software is only for technical learning, research, and personal testing. Please uninstall it within 24 hours after downloading, installing, or trying it. All behavior and consequences arising from continued use are borne by the user.\n\nThis software does not embed, sell, or distribute any video resources, and is not responsible for interfaces, sources, plugins, scripts, links, cloud-drive resources, or third-party service content added by users. Users must comply with local laws and regulations, respect the rights of copyright owners and content providers, and must not use this software for infringement, piracy, illegal content distribution, or other illegal purposes.\n\nAny individual or organization is strictly prohibited from selling, traffic diversion, paid maintenance, membership services, advertising monetization, box preinstallation, TV box bundle sales, or any other form of profit-making in the name of this software. The project clearly opposes and condemns selling or promoting this software as part of TV boxes, set-top boxes, paid packages, or commercial services.\n\nIf you do not agree with this statement, please stop using and uninstall this software immediately.</string>
-    <string name="about_check_update">Check updates</string>
     <string name="about_acknowledge">I understand</string>
-    <string name="setting_github_proxy">GitHub acceleration sources</string>
-    <string name="setting_github_proxy_short">Accelerate</string>
-    <string name="setting_github_proxy_hint">Enter a source URL</string>
-    <string name="setting_github_proxy_message">Tap a source to make it active. Turn acceleration off to use direct GitHub Raw/Release connections.</string>
-    <string name="setting_github_proxy_enabled">Use GitHub acceleration</string>
-    <string name="setting_github_proxy_add">Add</string>
-    <string name="setting_github_proxy_remove">Remove</string>
-    <string name="setting_github_proxy_reset">Reset to default</string>
-    <string name="setting_github_proxy_invalid">Please enter a valid http/https URL</string>
 
     <!-- Backup & Restore -->
     <string name="restore_select">Select backup</string>
@@ -1487,59 +1477,7 @@
     <string name="error_empty">Nothing here 👀</string>
 
     <!-- Update -->
-    <string name="update_version">New version <xliff:g name="name">%s</xliff:g></string>
-    <string name="update_title">Version update</string>
-    <string name="update_hint">Choose a version to view release notes and update.</string>
     <string name="update_check">Checking for updates…</string>
-    <string name="update_latest">Already on the latest version</string>
-    <string name="update_failed">Update check failed</string>
-    <string name="update_downloading">Downloading %1$d%%</string>
-    <string name="update_downloading_unknown">Downloading…</string>
-    <string name="update_downloading_detail">Downloading %1$d%% · %2$s/s · %3$s elapsed</string>
-    <string name="update_downloading_detail_remaining">Downloading %1$d%% · %2$s/s · %3$s left · %4$s elapsed</string>
-    <string name="update_downloading_detail_unknown">Downloading · %1$s/s · %2$s elapsed</string>
-    <string name="update_download_incomplete">The update package was not fully downloaded. Please try again.</string>
-    <string name="update_download_checksum">The update package failed verification. Please try again.</string>
-    <string name="update_download_invalid">The update package is invalid. Please try again.</string>
-    <string name="update_confirm">Update</string>
-    <string name="update_confirm_channel">Update %1$s</string>
-    <string name="update_cancel">Cancel update</string>
-    <string name="update_canceled">Update canceled</string>
-    <string name="update_channel_stable">Stable</string>
-    <string name="update_channel_beta">Beta</string>
-    <string name="update_channel_latest">This channel is already up to date.</string>
-    <string name="update_channel_unavailable">No update manifest is available for this channel.</string>
-    <string name="update_no_notes">No release notes.</string>
-    <string name="update_status_available">Available</string>
-    <string name="update_status_latest">Latest</string>
-    <string name="update_status_unavailable">Unavailable</string>
-    <string name="update_expand">Expand</string>
-    <string name="update_collapse">Collapse</string>
-    <string name="update_backup_title">Backup Before Update</string>
-    <string name="update_backup_message">It is recommended to backup your current configuration before updating. Would you like to backup first?</string>
-    <string name="update_backup_positive">Backup &amp; Update</string>
-    <string name="update_backup_negative">Update Directly</string>
-    <string name="update_backup_running">Backing up…</string>
-    <string name="update_backup_done">Backup completed, starting update</string>
-    <string name="update_backup_failed">Backup failed, will continue update anyway</string>
-    <string name="update_backup_permission_denied">Storage permission denied, cannot backup, will continue update anyway</string>
-    <string name="update_settings">Update settings</string>
-    <string name="update_settings_title">Update settings</string>
-    <string name="update_settings_source">Download method</string>
-    <string name="update_source_github">GitHub</string>
-    <string name="update_source_oci">OCI</string>
-    <string name="update_github_proxy">GitHub proxy</string>
-    <string name="update_github_proxy_value">GitHub proxy · %1$s</string>
-    <string name="update_oci_mirror">OCI Registry mirror</string>
-    <string name="update_oci_mirror_value">OCI mirror · %1$s</string>
-    <string name="update_custom_url">Custom HTTPS origin</string>
-    <string name="update_proxy_mode_full">Full URL prefix</string>
-    <string name="update_proxy_mode_strip">Remove https://</string>
-    <string name="update_proxy_direct">Direct</string>
-    <string name="update_proxy_custom">Custom</string>
-    <string name="update_proxy_invalid">Enter a valid HTTPS origin without credentials or a path.</string>
-    <string name="update_settings_save">Save</string>
-    <string name="update_settings_saved">Update settings saved</string>
     <string name="apk_push_url_busy">Another APK link download is already active</string>
     <string name="apk_push_url_schedule_failed">Unable to start the APK link download</string>
     <string name="apk_push_url_downloading">APK link received. Downloading on this device...</string>
@@ -1553,8 +1491,6 @@
     <string name="apk_push_url_progress_detail">%1$s/s · %2$s elapsed</string>
     <string name="apk_push_url_cancel">Cancel download</string>
     <string name="apk_push_url_canceled">APK download canceled</string>
-    <string name="update_download_identity">The update package identity or signature does not match this app.</string>
-    <string name="update_download_source_unavailable">The selected update source is not available for this release.</string>
 
     <!-- Crash -->
     <string name="crash_info">An unexpected error occurred.\nSorry for the inconvenience.</string>

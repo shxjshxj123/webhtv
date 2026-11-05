@@ -1,32 +1,23 @@
 package com.fongmi.android.tv.ui.dialog;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentActivity;
 
 import com.fongmi.android.tv.BuildConfig;
 import com.fongmi.android.tv.R;
 import com.fongmi.android.tv.databinding.DialogAboutBinding;
-import com.fongmi.android.tv.databinding.DialogGithubProxyBinding;
-import com.fongmi.android.tv.setting.Setting;
-import com.fongmi.android.tv.ui.adapter.GithubProxyAdapter;
 import com.fongmi.android.tv.utils.AppVersion;
-import com.fongmi.android.tv.utils.GithubProxy;
-import com.fongmi.android.tv.utils.Notify;
 import com.fongmi.android.tv.utils.ResUtil;
 import com.fongmi.android.tv.utils.Util;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public final class AboutDialog {
 
@@ -36,7 +27,7 @@ public final class AboutDialog {
     private AboutDialog() {
     }
 
-    public static void show(FragmentActivity activity, Runnable updateAction) {
+    public static void show(FragmentActivity activity) {
         DialogAboutBinding binding = DialogAboutBinding.inflate(LayoutInflater.from(activity));
         binding.version.setText(activity.getString(R.string.about_version, AppVersion.fullName(), BuildConfig.FLAVOR_mode, BuildConfig.FLAVOR_abi));
 
@@ -44,127 +35,10 @@ public final class AboutDialog {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(binding.getRoot());
         binding.confirm.setOnClickListener(v -> dialog.dismiss());
-        binding.updateSettings.setOnClickListener(v -> {
-            dialog.dismiss();
-            UpdateSettingsDialog.show(activity);
-        });
-        binding.checkUpdate.setOnClickListener(v -> {
-            dialog.dismiss();
-            if (updateAction != null) updateAction.run();
-        });
-        binding.githubProxy.setOnClickListener(v -> showGithubProxy(activity));
         dialog.setCanceledOnTouchOutside(false);
         dialog.show();
         configureWindow(activity, dialog, binding);
         binding.confirm.requestFocus();
-    }
-
-    private static void showGithubProxy(FragmentActivity activity) {
-        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(activity, R.style.Theme_WebHTV_LightDialog);
-        Context context = builder.getContext();
-        DialogGithubProxyBinding binding = DialogGithubProxyBinding.inflate(LayoutInflater.from(context));
-        GithubProxyAdapter adapter = new GithubProxyAdapter(new GithubProxyAdapter.OnClickListener() {
-            @Override
-            public void onActive(String item) {
-                Setting.putGithubProxy(GithubProxy.setActive(item));
-                refreshGithubProxy(binding);
-            }
-
-            @Override
-            public void onRemove(String item) {
-                Setting.putGithubProxy(GithubProxy.removeSource(item));
-                refreshGithubProxy(binding);
-            }
-        });
-        binding.list.setAdapter(adapter);
-        binding.list.setHasFixedSize(true);
-        binding.enabled.setChecked(Setting.isGithubProxyEnabled());
-        binding.enabled.setOnCheckedChangeListener((buttonView, isChecked) -> Setting.putGithubProxyEnabled(isChecked));
-        refreshGithubProxy(binding);
-
-        binding.add.setOnClickListener(v -> {
-            String value = String.valueOf(binding.input.getText()).trim();
-            if (!value.startsWith("http://") && !value.startsWith("https://")) {
-                Notify.show(R.string.setting_github_proxy_invalid);
-                return;
-            }
-            Setting.putGithubProxy(GithubProxy.addSource(value));
-            binding.input.setText("");
-            refreshGithubProxy(binding);
-        });
-        binding.reset.setOnClickListener(v -> {
-            Setting.putGithubProxy(GithubProxy.defaultSources());
-            refreshGithubProxy(binding);
-        });
-
-        View.OnKeyListener dpadNav = (v, keyCode, event) -> {
-            if (event.getAction() != KeyEvent.ACTION_DOWN) return false;
-            if (keyCode == KeyEvent.KEYCODE_DPAD_DOWN && v == binding.enabled) {
-                return binding.input.requestFocus();
-            }
-            if (keyCode == KeyEvent.KEYCODE_DPAD_UP && v == binding.enabled) {
-                return binding.list.requestFocus();
-            }
-            if (keyCode == KeyEvent.KEYCODE_DPAD_DOWN && v == binding.input) {
-                return binding.reset.requestFocus();
-            }
-            if (keyCode == KeyEvent.KEYCODE_DPAD_UP && v == binding.input) {
-                return binding.enabled.requestFocus();
-            }
-            if (keyCode == KeyEvent.KEYCODE_DPAD_UP && v == binding.reset) {
-                return binding.input.requestFocus();
-            }
-            return false;
-        };
-        binding.enabled.setOnKeyListener(dpadNav);
-        binding.input.setOnKeyListener(dpadNav);
-        binding.reset.setOnKeyListener(dpadNav);
-
-        AlertDialog githubDialog = builder
-                .setTitle(R.string.setting_github_proxy)
-                .setView(binding.getRoot())
-                .setPositiveButton(R.string.dialog_positive, null)
-                .create();
-        githubDialog.setOnShowListener(d -> {
-            binding.list.post(() -> {
-                GithubProxyAdapter a = (GithubProxyAdapter) binding.list.getAdapter();
-                if (a != null && a.getItemCount() > 0) {
-                    binding.list.scrollToPosition(a.getSelected());
-                    binding.list.requestFocus();
-                }
-            });
-        });
-        githubDialog.show();
-        LightDialog.apply(githubDialog);
-        configureGithubProxyWindow(activity, githubDialog, binding);
-    }
-
-    private static void configureGithubProxyWindow(FragmentActivity activity, AlertDialog dialog, DialogGithubProxyBinding binding) {
-        if (!Util.isLeanback()) return;
-        Window window = dialog.getWindow();
-        if (window == null) return;
-        // 电视端铺满全屏：不再按屏幕比例手算宽高，列表改为吃掉剩余空间。
-        // 这个弹窗经 MaterialAlertDialogBuilder.setView 装载，root 会被 AlertController
-        // 以 MATCH_PARENT 塞进 @id/custom，窗口给满高度后列表即可自由伸展。
-        WindowManager.LayoutParams params = window.getAttributes();
-        params.width = WindowManager.LayoutParams.MATCH_PARENT;
-        params.height = WindowManager.LayoutParams.MATCH_PARENT;
-        window.setAttributes(params);
-        // 这个弹窗有 URL 输入框。小窗居中时系统还能上推窗口避让键盘，铺满全屏后没有余量，
-        // 必须显式 ADJUST_RESIZE 让窗口自身缩小，否则输入框会被屏幕键盘盖住。
-        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
-        ViewGroup.LayoutParams listParams = binding.list.getLayoutParams();
-        listParams.height = 0;
-        if (listParams instanceof androidx.appcompat.widget.LinearLayoutCompat.LayoutParams) {
-            ((androidx.appcompat.widget.LinearLayoutCompat.LayoutParams) listParams).weight = 1;
-        } else if (listParams instanceof android.widget.LinearLayout.LayoutParams) {
-            ((android.widget.LinearLayout.LayoutParams) listParams).weight = 1;
-        }
-        binding.list.setLayoutParams(listParams);
-    }
-
-    private static void refreshGithubProxy(DialogGithubProxyBinding binding) {
-        ((GithubProxyAdapter) binding.list.getAdapter()).setItems(GithubProxy.getSources(), GithubProxy.getActive());
     }
 
     /**

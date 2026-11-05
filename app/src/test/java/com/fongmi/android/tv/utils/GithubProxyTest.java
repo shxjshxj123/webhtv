@@ -31,7 +31,7 @@ public class GithubProxyTest {
 
     @Test
     public void applyPrefixesFixedUpdateChannelUrl() {
-        String url = Github.getChannelAsset("mobile-arm64_v8a-beta.json");
+        String url = "https://github.com/Silent1566/webhtv/releases/download/update-channel/mobile-arm64_v8a-beta.json";
 
         assertEquals("https://ghfast.top/" + url, GithubProxy.apply(url, "https://ghfast.top/"));
     }
