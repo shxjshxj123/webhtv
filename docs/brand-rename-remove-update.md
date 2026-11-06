@@ -51,7 +51,8 @@
 - [x] 改名完成
 - [x] 删除更新子系统完成
 - [x] 验证通过（leanback 打包 + mobile 编译 + 相关单测）——2026-11-05 18:06 CST，BUILD SUCCESSFUL（58s）；AppBrandingContractTest 11/11 通过，AboutDialogLayoutTest 6/6 通过；APK `app-leanback-arm64_v8a-debug.apk` 184,924,796 字节，aapt2 验证标签 冉神影视，包名 com.silent.android.webhtv，5.6.0 / 560。
-- [ ] 提交 + recovery tag + 新 APK 上传 Drive
+- [x] 提交 + recovery tag（commit `7c752ed`，tag `recovery/brand-rename-remove-update/20261105180659-7c752ed1ffa9`，工作树干净，未推送）
+- [x] 新 APK 上传 Drive 并分享下载链接——APK 已上传（Drive 文件 ID `1fGnkFc1DSBC4X5eanOZFuRuldCCXtAaU`，185,850,147 字节），2026-11-05 18:39 CST 分享成功（anyone-with-link reader），下载链接已发给用户：https://drive.google.com/uc?id=1fGnkFc1DSBC4X5eanOZFuRuldCCXtAaU&export=download
 
 ## 验证结果与构建排障（2026-11-05）
 
@@ -62,4 +63,4 @@
 
 ## 下一步
 
-- 跑 `task_guard.sh finish` 提交并打 tag，再把新 APK 传到 Drive。
+- 全部完成。本次任务无遗留事项（正式版发布触发仍在等 GitHub 登录卡，那是另一件事）。

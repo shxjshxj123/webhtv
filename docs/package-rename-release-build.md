@@ -21,7 +21,7 @@
 - [x] 包名改为 com.ranshen.cc（build.gradle + 测试夹具）
 - [x] 打 4 个 release 包并用 aapt2 验证——2026-11-05 20:05 CST，BUILD SUCCESSFUL；4 个包 aapt2 均为包名 com.ranshen.cc、5.6.0 / 560、标签 冉神影视。电视版 arm64 164,920,108 字节，电视版 32 位 135,444,649 字节，手机版 arm64 165,369,131 字节，手机版 32 位 135,893,672 字节。构建中途云电脑重启了一次（19:29），已打好的 2 个电视版包还在，从断点续跑完成。
 - [x] 4 个 APK 传 Drive 分享，链接发给用户——2026-11-05 20:06 CST 全部上传并设为 anyone-with-link reader；链接见下。
-- [ ] 提交 + recovery tag
+- [x] 提交 + recovery tag（commit `eca2f14`，tag `recovery/package-rename-release-build/20261105200803-eca2f14ed49e`，工作树只剩上一任务的受保护文档改动，未推送）
 
 ## 4 个 release 包下载链接（Drive，anyone-with-link）
 
@@ -32,4 +32,4 @@
 
 ## 下一步
 
-- 建任务 guard，改包名。
+- 全部完成。本次任务无遗留事项（正式版发布触发仍在等 GitHub 登录卡，那是另一件事）。

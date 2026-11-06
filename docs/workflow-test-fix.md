@@ -27,5 +27,5 @@
 ## 任务清单
 
 - [x] 修工作流测试引用（文件级验证通过）
-- [ ] 提交 + recovery tag
-- [ ] 推送到 GitHub（待用户决定凭证方式）
+- [x] 提交 + recovery tag（commit `b6c1544`，tag `recovery/workflow-test-fix/20261106155126-b6c15446c2a5`，未推送）
+- [x] 推送到 GitHub（待用户决定凭证方式）——2026-11-06 推送成功：`eab79fb..b6c1544 main -> main`，3 个提交全部上去了。用户把虚拟机公钥加到了 GitHub 账号，远端已改走 `ssh://git@ssh.github.com:443/shxjshxj123/webhtv.git`（22 端口不通，443 通；ssh 默认去空的 /root/.ssh 找密钥和 known_hosts，须显式 `-i /home/hatch/.ssh/id_ed25519 -o UserKnownHostsFile=/home/hatch/.ssh/known_hosts`）。
